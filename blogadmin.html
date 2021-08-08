@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>BLOG ADMIN</title>
+</head>
+<div class="basic" >
+		{% include "header.html" %}
+	</div>
+
+
+<body>
+	<h1>VIEW BLOG</h1>
+	<h2><form action="blogview">
+<table border="1">
+	 <tr>
+	 	<td>Title</td>
+	 	<td>Body</td>
+	 	<td>User</td>
+	 </tr>
+	 {% for i in blg%}
+	 <tr>
+	 	<td>{{i.title}}</td>
+	 	<td>{{i.body}}</td>
+	 	<td>{{i.user}}
+	 </tr>
+	 {% endfor %}
+
+</table>
+<input type="submit" value="VIEW ALL"><br>
+</form>
+<h1>ADD BLOG</h1>
+	<form action="add1" method="POST">
+	{%csrf_token%}
+	<input type="text" placeholder="Title" name="title"/><br>
+	<input type="text" placeholder="Body" name="body" /><br>
+	<input type="text" placeholder="user" name="user" /><br>
+	
+	<input type="submit" name="btn" value="Add Blog">
+	{{msg1}}
+	{{msg2}}
+</form>
+<H1>EDIT EXISTING BLOG</H1>
+	
+	<form action="edit1" method="POST">
+		{%csrf_token%}
+		
+	<label>ENTER OLD TITLE:</label><input type="text" name="title" ><br>
+	<label>ENTER NEW TITLE:</label><input  type="text" name="newtitle" ><br>
+	<input type="submit" name="btn" value="EDIT TITLE"><br><br>
+	{{msg3}}
+
+</form>			
+		<form action="edit2" method="POST" >
+			{%csrf_token%}
+
+	<label>ENTER CONTENT:</label><input type="text" name="body"><br>
+	<label>ENTER NEW CONTENT:</label><input type="text" name="newbody"><br>
+	<input type="submit" name="btn" value="EDIT CONTENT"><br><br>
+	{{msg4}}
+	</form>
+
+
+<form action="dltblog1" method="POST">
+		{%csrf_token%}
+		<h1>  DELETE BLOG</h1>
+	 <label>TITLE</label><input type="text" name="title">
+    <label>BODY</label><input type="text" name="body">
+    <input  type="submit" name="btn" value="DELETE"><br><br>
+    {{msg5}}
+    </form>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME</title>
+</head>
+<div class="basic" >
+		{% include "header.html" %}
+	</div>
+<body>
+
+	<h1>VIEW BLOG</h1>
+	<h2><form action="blogview1">
+<table border="1">
+	 <tr>
+	 	<td>Title</td>
+	 	<td>Body</td>
+	 	<td>Likes</td>
+	 </tr>
+	 {% for i in blg1%}
+	 <tr>
+	 	<td>{{i.title}}</td>
+	 	<td>{{i.body}}</td>
+	 	<td>{{i.user}}</td>
+	 	
+	 </tr>
+	 {% endfor %}
+
+</table>
+<input type="submit" value="VIEW ALL"><br>
+</form>
+
+</body>
+</html>

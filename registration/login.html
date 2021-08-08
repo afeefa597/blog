@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LOGIN</title>
+</head>
+<div class="basic" >
+		{% include "header.html" %}
+	</div>
+
+<body>
+<form method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" value="Login">
+	<a href="{% url 'reset'%}"><i>Forgot Password?</i></a> 
+</form>
+</body>
+</html>

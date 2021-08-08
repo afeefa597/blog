@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SIGNUP</title>
+</head>
+
+<div class="basic" >
+		{% include "header.html" %}
+	</div>
+
+<form method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" value="signup">
+</form>
+</html>
